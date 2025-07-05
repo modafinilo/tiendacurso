@@ -14,6 +14,7 @@ import Nosotros from './pages/Nosotros';
 import NotFound from './pages/NotFound';
 import NavBar from './components/layout/Navbar';
 import AdminRoute from './routes/AdminRoute';
+import Footer from './components/layout/Footer';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,7 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cursos" element={<Cursos />} />
-          <Route path="/cursos/:id" element={<CursoDetalle />} />
+          <Route path="/curso/:id" element={<CursoDetalle />} />
           <Route path="/carrito" element={<Carrito />} />
           <Route path="/login" element={<Login />} />
         <Route path="/admin" element={
@@ -37,7 +38,7 @@ function App() {
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      
+         <Footer />
     </>
   )
 }

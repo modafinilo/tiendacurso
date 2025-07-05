@@ -21,19 +21,23 @@ function Admin() {
     };
 
     const handleNuevo = () => {
-        MySwal.fire({
+        const div = document.createElement('div');
+        div.id = 'react-form-container';
+
+        Swal.fire({
             title: 'Nuevo Producto',
-            html: '<div id="form-container"></div>', // importante: string
+            html: div,
             didOpen: () => {
-                const container = document.getElementById('form-container');
+                const container = document.getElementById('react-form-container');
                 if (container) {
                     ReactDOM.createRoot(container).render(
                         <ProductForm
+                            initialData={null} // <-- MUY IMPORTANTE pasar null
                             onSave={async (formData) => {
                                 await addDoc(collection(db, 'productos'), {
                                     ...formData,
                                     stock: 0,
-                                    destacado: false,
+                                    destacado: false
                                 });
                                 cargarProductos();
                                 Swal.close();
@@ -45,7 +49,7 @@ function Admin() {
             showConfirmButton: false,
         });
     };
-
+    
     const handleEditar = (producto) => {
         MySwal.fire({
             title: 'Editar Producto',

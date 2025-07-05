@@ -1,0 +1,17 @@
+/* src/styles/Home.css */
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+h2 {
+    font-weight: bold;
+}
+
+hr {
+    border-top: 2px solid #ccc;
+}

@@ -10,13 +10,22 @@ const ProductForm = ({ initialData = {}, onSave, onDelete }) => {
     });
 
     useEffect(() => {
-        if (initialData) {
+        if (initialData && Object.keys(initialData).length > 0) {
             setFormData({
                 nombre: initialData.nombre || '',
                 descripcion: initialData.descripcion || '',
                 precio: initialData.precio || '',
                 categoria: initialData.categoria || '',
                 imagen: initialData.imagen || ''
+            });
+        } else {
+            // Asegura el reset completo si es nuevo
+            setFormData({
+                nombre: '',
+                descripcion: '',
+                precio: '',
+                categoria: '',
+                imagen: ''
             });
         }
     }, [initialData]);
